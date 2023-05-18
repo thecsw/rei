@@ -1,7 +1,7 @@
 package rei
 
-// try panics if err is not nil.
-func try(err error) {
+// Try panics if err is not nil.
+func Try(err error) {
 	if err != nil {
 		panic(err)
 	}

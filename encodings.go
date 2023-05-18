@@ -12,14 +12,14 @@ func Sha256(what []byte) string {
 	return hex.EncodeToString(ans[:])
 }
 
-// btao encodes bytes to base64 string.
-func btao(what []byte) string {
+// Btao encodes bytes to base64 string.
+func Btao(what []byte) string {
 	return base64.StdEncoding.EncodeToString(what)
 }
 
-// atob decodes base64 string to bytes, panics on error.
-func atob(what string) []byte {
+// Atob decodes base64 string to bytes, panics on error.
+func Atob(what string) []byte {
 	res, err := base64.StdEncoding.DecodeString(what)
-	try(err)
+	Try(err)
 	return res
 }

@@ -2,14 +2,14 @@ package rei
 
 import "strconv"
 
-// atoi converts string to int.
-func atoi(s string) int {
+// Atoi converts string to int.
+func Atoi(s string) int {
 	i, err := strconv.Atoi(s)
-	try(err)
+	Try(err)
 	return i
 }
 
-// itoa converts int to string.
-func itoa(i int) string {
+// Itoa converts int to string.
+func Itoa(i int) string {
 	return strconv.Itoa(i)
 }

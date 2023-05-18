@@ -9,7 +9,7 @@ import (
 // FileMustExist checks if file FileExists. Panics if not.
 func FileMustExist(path string) bool {
 	exists, err := FileExists(path)
-	try(err)
+	Try(err)
 	return exists
 }
 
