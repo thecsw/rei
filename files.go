@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 )
 
-// FileMustExist checks if file FileExists. Panics if not.
+// FileMustExist returns true if file exists, false otherwise, panics on errors.
 func FileMustExist(path string) bool {
 	exists, err := FileExists(path)
 	Try(err)
@@ -16,6 +16,9 @@ func FileMustExist(path string) bool {
 // FileExists checks if file FileExists.
 // Returns true if FileExists, false if not and error if error happened.
 func FileExists(path string) (bool, error) {
+	if len(path) < 1 {
+		return false, nil
+	}
 	_, err := os.Stat(filepath.Clean(path))
 	// exists
 	if err == nil {
