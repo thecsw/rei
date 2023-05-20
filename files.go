@@ -2,6 +2,7 @@ package rei
 
 import (
 	"errors"
+	"fmt"
 	"os"
 	"path/filepath"
 )
@@ -29,7 +30,7 @@ func FileExists(path string) (bool, error) {
 		return false, nil
 	}
 	// error happened
-	return false, err
+	return false, fmt.Errorf("getting file stat %s: %v", path, err)
 }
 
 // Mkdir creates a directory(ies if needed) and reports fatal errors.
@@ -39,7 +40,7 @@ func Mkdir(path string) error {
 	// If we couldn't create the vendor directory and it doesn't
 	// exist, then turn off the vendor option.
 	if err != nil && !os.IsExist(err) {
-		return err
+		return fmt.Errorf("making directory(ies) %s: %v", path, err)
 	}
 	return nil
 }

@@ -17,9 +17,14 @@ func Btao(what []byte) string {
 	return base64.StdEncoding.EncodeToString(what)
 }
 
-// Atob decodes base64 string to bytes, panics on error.
-func Atob(what string) []byte {
+// AtobMust decodes base64 string to bytes, panics on error.
+func AtobMust(what string) []byte {
 	res, err := base64.StdEncoding.DecodeString(what)
 	Try(err)
 	return res
+}
+
+// Atob decodes base64 string to bytes and an error if any.
+func Atob(what string) ([]byte, error) {
+	return base64.StdEncoding.DecodeString(what)
 }
